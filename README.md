@@ -54,8 +54,6 @@ python -m deepfake_detection.main \
 
 Supported model names are `basic_cnn`, `resnet`, `inception`, `vit`, `xception` and `wavelet_clip`. Training logs will report accuracy and ROC‑AUC for every epoch. The best performing model on the validation set is saved if `--save-model` is provided.
 
-Legacy scripts (e.g. `pretrained_resnet.py`) can still be executed directly but now rely on the shared dataset implementation.
-
 ## Citation
 
 This repository is released under the MIT License. Feel free to use and modify the code for your own research.
