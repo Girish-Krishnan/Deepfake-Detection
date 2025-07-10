@@ -12,7 +12,7 @@ This repository provides a collection of baseline models for detecting deepfakes
 └── train.py
 ```
 
-The new `deepfake_detection` package exposes reusable components so that models no longer repeat the same dataset code. Legacy scripts still work but now import the shared dataset class.
+The new `deepfake_detection` package exposes reusable components so that models no longer repeat the same dataset code.
 
 ## Requirements
 
