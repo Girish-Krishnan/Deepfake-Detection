@@ -1,38 +1,18 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
 from torchvision import transforms
-from PIL import Image
+from tqdm import tqdm
+import numpy as np
 import os
 import glob
-import numpy as np
-from sklearn.utils.class_weight import compute_class_weight
-from tqdm import tqdm
+from deepfake_detection.dataset import ImageDataset
 
 # Add random seeds
 torch.manual_seed(0)
 np.random.seed(0)
 
-# Custom Dataset class for separate training and validation directories
-class CustomDataset(Dataset):
-    def __init__(self, real_dir, fake_dir, transform=None):
-        self.real_images = glob.glob(os.path.join(real_dir, '*.png'))
-        self.fake_images = glob.glob(os.path.join(fake_dir, '*.png'))
-        self.transform = transform
-        # Combine image paths and labels (0 for real, 1 for fake)
-        self.data = [(img_path, 0) for img_path in self.real_images] + \
-                    [(img_path, 1) for img_path in self.fake_images]
-    
-    def __len__(self):
-        return len(self.data)
-    
-    def __getitem__(self, idx):
-        img_path, label = self.data[idx]
-        image = Image.open(img_path).convert("RGB")
-        if self.transform:
-            image = self.transform(image)
-        return image, label
 
 # Paths to training and validation directories
 train_real_dir = 'train_real'
@@ -70,8 +50,8 @@ class CNNModel(nn.Module):
 
 if __name__ == "__main__":
     # Create datasets for training and validation
-    train_dataset = CustomDataset(train_real_dir, train_fake_dir, transform=transform)
-    val_dataset = CustomDataset(valid_real_dir, valid_fake_dir, transform=transform)
+    train_dataset = ImageDataset(train_real_dir, train_fake_dir, transform=transform)
+    val_dataset = ImageDataset(valid_real_dir, valid_fake_dir, transform=transform)
 
     # DataLoaders for training and validation with optimized settings
     batch_size = 32

@@ -1,16 +1,16 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
+from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchvision import transforms
 from sklearn.metrics import roc_auc_score, accuracy_score
 from tqdm import tqdm
-from PIL import Image
 import os
 import glob
 import numpy as np
 import timm
 import cv2
+from PIL import Image
 
 # Add random seeds
 torch.manual_seed(0)
