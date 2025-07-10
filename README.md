@@ -16,7 +16,7 @@ The new `deepfake_detection` package exposes reusable components so that models 
 
 ## Requirements
 
-The project relies on PyTorch and `timm` for model definitions. The optional `wavelet_clip.py` script expects the [Wavelet-CLIP](https://github.com/lalithbharadwajbaru/wavelet-clip) repository to be cloned next to this one. A complete environment can be reproduced with the provided `Dockerfile`.
+The project relies on PyTorch and `timm` for model definitions. The optional `wavelet_clip.py` script expects the [Wavelet-CLIP](https://github.com/Girish-Krishnan/wavelet-clip) repository to be cloned next to this one. A complete environment can be reproduced with the provided `Dockerfile`.
 
 ## Dataset
 
