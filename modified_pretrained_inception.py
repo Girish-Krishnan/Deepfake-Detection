@@ -1,37 +1,19 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
+from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchvision import transforms, models
 from sklearn.metrics import roc_auc_score, accuracy_score
 from tqdm import tqdm
-from PIL import Image
 import os
 import glob
+from deepfake_detection.dataset import ImageDataset
 import numpy as np
 
 # Add random seeds
 torch.manual_seed(0)
 np.random.seed(0)
 
-# Custom Dataset class
-class CustomDataset(Dataset):
-    def __init__(self, real_dir, fake_dir, transform=None):
-        self.real_images = glob.glob(os.path.join(real_dir, '*.png'))
-        self.fake_images = glob.glob(os.path.join(fake_dir, '*.png'))
-        self.transform = transform
-        self.data = [(img_path, 0) for img_path in self.real_images] + \
-                    [(img_path, 1) for img_path in self.fake_images]
-    
-    def __len__(self):
-        return len(self.data)
-    
-    def __getitem__(self, idx):
-        img_path, label = self.data[idx]
-        image = Image.open(img_path).convert("RGB")
-        if self.transform:
-            image = self.transform(image)
-        return image, label
 
 # Paths to training and validation directories
 train_real_dir = 'train_real'
@@ -58,8 +40,8 @@ val_transform = transforms.Compose([
 ])
 
 # Dataset initialization
-train_dataset = CustomDataset(train_real_dir, train_fake_dir, transform=train_transform)
-val_dataset = CustomDataset(valid_real_dir, valid_fake_dir, transform=val_transform)
+train_dataset = ImageDataset(train_real_dir, train_fake_dir, transform=train_transform)
+val_dataset = ImageDataset(valid_real_dir, valid_fake_dir, transform=val_transform)
 
 # Calculate class weights
 num_real = len(glob.glob(os.path.join(train_real_dir, '*.png')))
