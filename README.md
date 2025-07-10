@@ -12,11 +12,9 @@ deepfake_detection/
 └── train.py      # Training utilities
 ```
 
-The `deepfake_detection` package exposes reusable components so models no longer repeat dataset code.
-
 ## Requirements
 
-The project relies on [PyTorch](https://pytorch.org) and [timm](https://github.com/huggingface/pytorch-image-models) for model definitions. The optional `wavelet_clip.py` script expects the [Wavelet‑CLIP](https://github.com/Girish-Krishnan/wavelet-clip) repository to be cloned next to this one. You can reproduce a full environment using the provided `Dockerfile`.
+The project relies on [PyTorch](https://pytorch.org) and [timm](https://github.com/huggingface/pytorch-image-models) for model definitions. Training the Wavelet-CLIP model requires the [Wavelet‑CLIP](https://github.com/Girish-Krishnan/wavelet-clip) repository to be cloned next to this one. You can reproduce a full environment using the provided `Dockerfile`.
 
 You can install the Python dependencies locally with:
 
@@ -26,8 +24,7 @@ pip install -r requirements.txt
 
 ## Dataset
 
-The DFWild Cup dataset is available here:
-<https://tcgcr-my.sharepoint.com/personal/md_sahidullah_tcgcrest_org/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fmd%5Fsahidullah%5Ftcgcrest%5Forg%2FDocuments%2DFWild-Cup&ga=1>
+The DFWild Cup dataset is available at [this link](https://urldefense.com/v3/__https://tcgcr-my.sharepoint.com/:f:/g/personal/md_sahidullah_tcgcrest_org/Ejcnf4dcLLFEiJfRkfCOCb8Bb6P8UPo04Q3x1R13YSeKGg?e=EVnf4G__;!!Mih3wA!HMm1WtS6D9z731ElgcdQVwkmcTz5iV1fmvaVMEH3HQr3B7HJ-0yMpRt2Rq9AtPO2pTNU8oaDsmfz9o2p6xZuFUXeYzY$).
 
 After downloading, arrange the images into four folders:
 
@@ -70,4 +67,3 @@ Supported model names are listed in the table above. Training logs report accura
 ## Citation
 
 This repository is released under the MIT License. Feel free to use and modify the code for your own research.
-
