@@ -1,6 +1,10 @@
 # Deepfake Detection Models
 
-This repository contains several baseline models for spotting deepfakes in still images. The code was originally developed for the IEEE SPC DFWild Cup 2025 challenge but can be applied to other datasets.
+Contributors: *Girish Krishnan, Philip Pincencia, Kendrick Nguyen, Genaro Salazar, Benjia Zhang, Jason Yang, Brent Brewster*
+
+Faculty Advisor: *Prof. Truong Nguyen*
+
+This repository contains several baseline models for spotting deepfakes in still images. The code was originally developed for the IEEE SPC DFWild Cup 2025 challenge but can be applied to other datasets. The formal report for the project can be found in `Project_Report.pdf`.
 
 ## Repository Structure
 
