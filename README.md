@@ -10,14 +10,6 @@ This repository provides a collection of baseline models for detecting deepfakes
 ├── main.py               # Command line entry point
 ├── models.py
 └── train.py
-basic_cnn.py              # Stand‑alone experiment scripts (legacy)
-modified_pretrained_inception.py
-pretrained_inception.py
-pretrained_resnet.py
-pretrained_vit.py
-pretrained_xception.py
-wavelet_clip.py
-xception_fourier.py
 ```
 
 The new `deepfake_detection` package exposes reusable components so that models no longer repeat the same dataset code. Legacy scripts still work but now import the shared dataset class.
