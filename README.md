@@ -18,6 +18,12 @@ The `deepfake_detection` package exposes reusable components so models no longer
 
 The project relies on [PyTorch](https://pytorch.org) and [timm](https://github.com/huggingface/pytorch-image-models) for model definitions. The optional `wavelet_clip.py` script expects the [Wavelet‑CLIP](https://github.com/Girish-Krishnan/wavelet-clip) repository to be cloned next to this one. You can reproduce a full environment using the provided `Dockerfile`.
 
+You can install the Python dependencies locally with:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Dataset
 
 The DFWild Cup dataset is available here:
